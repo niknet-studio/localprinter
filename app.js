@@ -10,7 +10,8 @@ http
   .createServer(function (req, res) {
     let data = seperateData(req.url);
     let id = data[1];
-    console.log(id);
+    let isForUser = data[2];
+    console.log(id + "," + isForUser);
 
     if (!executed) {
       // executed = true;
@@ -25,7 +26,7 @@ http
         //   .finally(() => {
         //     Print(id + ".pdf", "POS-90");
         //   });
-        GetMainInvoice(id)
+        GetMainInvoice(id,isForUser)
         // setTimeout(function () {
         // }, 0);
       }
@@ -49,8 +50,13 @@ function Print(pdfToPrint, printer) {
   console.log(result);
 }
 
-async function GetMainInvoice(id) {
+async function GetMainInvoice(id,isForUser) {
+
   let externalURL = "https://branch.caropastry.com/invoice/print/" + id;
+
+  if(isForUser == false){
+    externalURL = "https://branch.caropastry.com/invoice/printpers/" + id;
+  }
 
    requestify.get(externalURL).then(function (response) {
     let html = response.body;
