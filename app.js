@@ -51,12 +51,14 @@ function Print(pdfToPrint, printer) {
 }
 
 async function GetMainInvoice(id,isForUser) {
-
+  
   let externalURL = "https://branch.caropastry.com/invoice/print/" + id;
 
-  if(isForUser == false){
+  if(isForUser == 'false'){
     externalURL = "https://branch.caropastry.com/invoice/printpers/" + id;
   }
+
+  console.log(externalURL);
 
    requestify.get(externalURL).then(function (response) {
     let html = response.body;
@@ -76,10 +78,10 @@ async function GetMainInvoice(id,isForUser) {
         // setTimeout(() => {
           Print(id + ".pdf", "POS-90");
         // }, 2000);
-        console.log(res);
+        // console.log(res);
       });
   }).catch(ex=>{
-    console.log(ex);
+    // console.log(ex);
   })
   // .then(res=>{
   //   console.log(res);
