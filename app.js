@@ -14,7 +14,7 @@ http
     console.log(id + "," + isForUser);
 
     if (!executed) {
-      // executed = true;
+      executed = true;
       if (id != "favicon.ico") {
         // let myPromise = new Promise(function (myResolve, myReject) {
         //   myResolve();
