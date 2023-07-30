@@ -52,10 +52,10 @@ function Print(pdfToPrint, printer) {
 
 async function GetMainInvoice(id,isForUser) {
   
-  let externalURL = "https://branch.caropastry.com/invoice/print/" + id;
+  let externalURL = "https://branch.babaghanad.com/invoice/print/" + id;
 
   if(isForUser == 'false'){
-    externalURL = "https://branch.caropastry.com/invoice/printpers/" + id;
+    externalURL = "https://branch.babaghanad.com/invoice/printpers/" + id;
   }
 
   console.log(externalURL);
